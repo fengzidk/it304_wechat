@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import it304.model.WeChat;
+import it304.parametermodel.WeChat;
 import it304.util.wechat.SignUtil;
 
 
