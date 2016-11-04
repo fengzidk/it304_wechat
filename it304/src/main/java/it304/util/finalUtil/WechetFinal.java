@@ -1,7 +1,7 @@
 package it304.util.finalUtil;
 
 /**
- * Î¢ĞÅµÄ³£Á¿Àà
+ * å¾®ä¿¡çš„å¸¸é‡ç±»
  * @author DK
  *
  */
@@ -12,7 +12,7 @@ public class WechetFinal {
 	public static String APPID = "wxd50a5da7f0e26932";
 	
 	/**
-	 * Î¢ĞÅ½ÓÈëtoken £¬ÓÃÓÚÑéÖ¤Î¢ĞÅ½Ó¿Ú
+	 * å¾®ä¿¡æ¥å…¥token ï¼Œç”¨äºéªŒè¯å¾®ä¿¡æ¥å£
 	 */
 	public static String TOKEN = "it304weixin";
 }

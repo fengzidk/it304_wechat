@@ -6,7 +6,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import it304.sys.read.WeiXinProperties;
 
 /**
- * springÔÚ´´½¨ÈİÆ÷Íê³ÉÖ®ºó×Ô¶¯Ö´ĞĞµÄÀà£¬´ËÀà»á¼à¿ØContextRefreshedEventÊÂ¼ş£¨ÈİÆ÷³õÊ¼»¯Íê³ÉÊÂ¼ş£©
+ * springåœ¨åˆ›å»ºå®¹å™¨å®Œæˆä¹‹åè‡ªåŠ¨æ‰§è¡Œçš„ç±»ï¼Œæ­¤ç±»ä¼šç›‘æ§ContextRefreshedEventäº‹ä»¶ï¼ˆå®¹å™¨åˆå§‹åŒ–å®Œæˆäº‹ä»¶ï¼‰
  * @author DK
  *
  */

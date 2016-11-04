@@ -6,7 +6,7 @@ import java.util.Properties;
 
 import it304.util.ReadPropertites;
 /**
- * 读取微信配置的服务类
+ * 璇诲彇寰俊閰嶇疆鐨勬湇鍔＄被
  * @author DK
  *
  */

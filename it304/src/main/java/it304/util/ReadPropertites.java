@@ -6,23 +6,23 @@ import java.util.Properties;
 /**
  * 
  * @author DK
- * ¶ÁÈ¡propertiesÎÄ¼ş¹«¹²Àà
+ * è¯»å–propertiesæ–‡ä»¶å…¬å…±ç±»
  *
  */
 public class ReadPropertites {
 	/**
-	 * ¼ÓÔØpropertiesÎÄ¼ş
+	 * åŠ è½½propertiesæ–‡ä»¶
 	 * @param fileName
 	 * @return Properties
 	 * @throws IOException
 	 */
 	public static  Properties load (String fileName) throws IOException{
 		Properties props = new Properties();
-		 //ReadPropertites ÊÇÀàÃû(Õâ¸ö·½·¨ËùÔÚÀàµÄÀàÃû)
+		 //ReadPropertites æ˜¯ç±»å(è¿™ä¸ªæ–¹æ³•æ‰€åœ¨ç±»çš„ç±»å)
 		InputStream in = ReadPropertites.class.getClassLoader().getResourceAsStream(fileName); 
 		props.load(in);
 		in.close();
-		//String jmsUrl = props.getProperty("JMS.Url"); //¶ÁÈ¡,¸ù¾İkey
+		//String jmsUrl = props.getProperty("JMS.Url"); //è¯»å–,æ ¹æ®key
 		return props;
 	}
 }

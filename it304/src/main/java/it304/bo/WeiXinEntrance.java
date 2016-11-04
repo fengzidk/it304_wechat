@@ -11,7 +11,7 @@ import it304.util.wechat.SignUtil;
 
 
 /**
- * Î¢ĞÅÏûÏ¢µÄÈë¿Ú
+ * å¾®ä¿¡æ¶ˆæ¯çš„å…¥å£
  * @author DK
  *
  */
@@ -23,25 +23,25 @@ public class WeiXinEntrance {
 	public String xxtInterface(WeChat wc){
 		long start = System.currentTimeMillis();
 		System.out.println("/api");
-		String signature = wc.getSignature(); // Î¢ĞÅ¼ÓÃÜÇ©Ãû  
-        String timestamp = wc.getTimestamp(); // Ê±¼ä´Á  
-        String nonce = wc.getNonce();// Ëæ»úÊı  
-        String echostr = wc.getEchostr();// Ëæ»ú×Ö·û´®  
+		String signature = wc.getSignature(); // å¾®ä¿¡åŠ å¯†ç­¾å  
+        String timestamp = wc.getTimestamp(); // æ—¶é—´æˆ³  
+        String nonce = wc.getNonce();// éšæœºæ•°  
+        String echostr = wc.getEchostr();// éšæœºå­—ç¬¦ä¸²  
         System.out.println(wc.toString());
-        // Í¨¹ı¼ìÑésignature¶ÔÇëÇó½øĞĞĞ£Ñé£¬ÈôĞ£Ñé³É¹¦ÔòÔ­Ñù·µ»Øechostr£¬±íÊ¾½ÓÈë³É¹¦£¬·ñÔò½ÓÈëÊ§°Ü  
+        // é€šè¿‡æ£€éªŒsignatureå¯¹è¯·æ±‚è¿›è¡Œæ ¡éªŒï¼Œè‹¥æ ¡éªŒæˆåŠŸåˆ™åŸæ ·è¿”å›echostrï¼Œè¡¨ç¤ºæ¥å…¥æˆåŠŸï¼Œå¦åˆ™æ¥å…¥å¤±è´¥  
         if (SignUtil.checkSignature(signature, timestamp, nonce)) {  
         	System.out.println(echostr);
         	System.out.println(((long)System.currentTimeMillis()-start)+"ms");
             return echostr;  
         } else {  
-            System.out.println("²»ÊÇÎ¢ĞÅ·şÎñÆ÷·¢À´µÄÇëÇó,ÇëĞ¡ĞÄ!");  
+            System.out.println("ä¸æ˜¯å¾®ä¿¡æœåŠ¡å™¨å‘æ¥çš„è¯·æ±‚,è¯·å°å¿ƒ!");  
             return null;
         }  
 	}
 	@RequestMapping(value="/test",method = RequestMethod.GET)
 	@ResponseBody
 	public String test(){
-		System.out.println("±ğ£¬±ğ½øÀ´");
+		System.out.println("åˆ«ï¼Œåˆ«è¿›æ¥");
 		return "seccuss";
 	}
 }

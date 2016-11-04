@@ -1,18 +1,18 @@
 package it304.parametermodel;
 
 /**
- * Î¢ĞÅÑéÖ¤ÊµÌåÀà
+ * å¾®ä¿¡éªŒè¯å®ä½“ç±»
  * @author DK
  *
  */
 public class WeChat {
-	//°üº¬tokenµÄ×Ö·û´®
+	//åŒ…å«tokençš„å­—ç¬¦ä¸²
 	private String signature;
-	// Ê±¼ä´Á
+	// æ—¶é—´æˆ³
 	private String timestamp;
-	// Ëæ»úÊı
+	// éšæœºæ•°
 	private String nonce;
-	// Ëæ»ú×Ö·û´®
+	// éšæœºå­—ç¬¦ä¸²
 	private String echostr;
 	
 	
