@@ -4,7 +4,9 @@ C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\ini
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\util\wechat\PackageMessage.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\model\selectreturnmessage\package-info.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\model\Test\Test.java
+C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\sys\init\WeChatMenuInit.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\util\finalUtil\WechetFinal.java
+C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\task\package-info.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\passivereply\WeChatMessageContrlInterface.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\bo\WeiXinEntrance.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\passivereply\impl\TextFormatMessage.java
@@ -17,6 +19,7 @@ C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\sys\read\We
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\util\DateUtils.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\sys\InitClass.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\dao\passivereply\textformat\ITextFormatDao.java
+C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\task\wechat\GetToken.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\dao\passivereply\textformat\package-info.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\passivereply\package-info.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\util\wechat\SignUtil.java

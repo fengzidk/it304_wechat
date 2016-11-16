@@ -32,7 +32,7 @@ public class WeiXinEntrance {
 	private PassiveReplyWeChatControl passiveReplyWeChatControl;
 
 	/**
-	 * 用来绑定微信的url时调用的借口
+	 * 用来绑定微信的url时调用的借口(其实就是微信判断程序死活的借口)
 	 * 
 	 * @param wc
 	 * @return
@@ -58,6 +58,15 @@ public class WeiXinEntrance {
 		}
 	}
 
+	/**
+	 * 接收微信消息的接口
+	 * 
+	 * @param wc
+	 * @param request
+	 * @param response
+	 * @throws DocumentException
+	 * @throws IOException
+	 */
 	@RequestMapping(value = "/api", method = RequestMethod.POST)
 	public void receiveTheMessageInterface(WeChat wc, HttpServletRequest request, HttpServletResponse response) throws DocumentException, IOException {
 		response.setCharacterEncoding("UTF-8");

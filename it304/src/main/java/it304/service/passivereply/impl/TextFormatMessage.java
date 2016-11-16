@@ -19,14 +19,16 @@ public class TextFormatMessage implements WeChatMessageContrlInterface {
 
 	@Override
 	public String retrunMassage(Map<String, String> whChatMessage) {
+		// 要回复的消息
 		StringBuilder msg = new StringBuilder();
+		// 获取用户发送的消息
 		String weChatMsg = whChatMessage.get("Content");
 		String[] keyWord = weChatMsg.split(";");
 		List<TextFromat> queryKeyWord = textFormatDaoImpl.queryKeyWord(keyWord[0]);
 		if (queryKeyWord.size() > 1) {
 			msg.append("您让俺糊涂了 \n\t您要操作的是哪一个???\n");
 			for (TextFromat textFromat : queryKeyWord) {
-				msg.append(textFromat.getKeyWord() + "\n");
+				msg.append(textFromat.getKeyWord() + "      " + textFromat.getExplanation() + "\n");
 			}
 		} else if (queryKeyWord == null || queryKeyWord.size() == 0) {
 			TextFromat fromat = textFormatDaoImpl.queryDefaultKeyWord();

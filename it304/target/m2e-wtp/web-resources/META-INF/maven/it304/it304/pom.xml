@@ -3,12 +3,21 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>it304</groupId>
 	<artifactId>it304</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>war</packaging>
 	<name>weixin</name>
 	<description>第一个微信</description>
 
 	<dependencies>
+		<!-- JSON -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.20</version>
+		</dependency>
+
+		<!-- JSON -->
+
 		<!-- 注解包 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -152,4 +161,35 @@
 
 
 	</dependencies>
+	<build>
+		<finalName>weixin</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>utf8</encoding>
+				</configuration>
+			</plugin>
+			<!-- 打成war包 -->
+			<plugin>
+
+				<groupId>org.apache.maven.plugins</groupId>
+
+				<artifactId>maven-war-plugin</artifactId>
+
+				<version>2.1</version>
+
+				<configuration>
+
+					<warName>weixin</warName>
+
+				</configuration>
+
+			</plugin>
+		</plugins>
+
+	</build>
 </project>

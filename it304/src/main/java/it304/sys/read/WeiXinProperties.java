@@ -12,14 +12,19 @@ import it304.util.ReadPropertites;
  *
  */
 public class WeiXinProperties {
-	public static String token;
-	public static String myUserName;
+	public static String token; // 微信token
+	public static String myUserName; // 自己的openID
+	public static String AppID; // 公众号的appID
+	public static String AppSecret; // 公众号的AppSecret
+	public static String ACCESS_Token;// ACCESS_Token
 
 	public static void read() {
 		try {
 			Properties load = ReadPropertites.load("weixin.properties");
 			token = load.getProperty("token");
 			myUserName = load.getProperty("myUserName");
+			AppID = load.getProperty("AppID");
+			AppSecret = load.getProperty("AppSecret");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

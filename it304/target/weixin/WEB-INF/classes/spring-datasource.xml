@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    					http://www.springframework.org/schema/beans/spring-beans.xsd
+    					http://www.springframework.org/schema/context
+    					http://www.springframework.org/schema/context/spring-context.xsd
+    					http://www.springframework.org/schema/aop
+    					http://www.springframework.org/schema/aop/spring-aop.xsd
+    					http://www.springframework.org/schema/tx
+    					http://www.springframework.org/schema/tx/spring-tx.xsd
+    					http://www.springframework.org/schema/task 
+     					http://www.springframework.org/schema/task/spring-task.xsd">
+
+	<description>Spring 托管下hibernate的配置</description>
+
+
+
+	<!-- 数据库连接配置获取 -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath*:db.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClass}" />
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}" />
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+
+		<property name="minPoolSize" value="100" />
+		<property name="maxPoolSize" value="300" />
+		<property name="initialPoolSize" value="100" />
+		<property name="maxIdleTime" value="60" />
+		<property name="acquireIncrement" value="5" />
+		<property name="maxStatements" value="0" />
+		<property name="idleConnectionTestPeriod" value="60" />
+		<property name="acquireRetryAttempts" value="30" />
+		<property name="breakAfterAcquireFailure" value="true" />
+
+		<property name="numHelperThreads" value="5"></property>
+		<property name="testConnectionOnCheckout" value="false"></property>
+		<property name="acquireRetryDelay" value="1000"></property>
+	</bean>
+
+
+	<!-- 创建sessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<!-- <property name="configLocations"> <value>classpath:hibernate.cfg.xml</value> 
+			</property> -->
+		<property name="packagesToScan">
+			<list>
+				<value>it304.model</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<!-- 如果开启, Hibernate将在SQL中生成有助于调试的注释信息, 默认值为false. 取值 true | false -->
+				<prop key="hibernate.use_sql_comments">false</prop>
+				<!-- Fetch Size 是设定JDBC的Statement读取数据的时候每次从数据库中取出的记录条数。 -->
+				<prop key="hibernate.jdbc.fetch_size">50</prop>
+				<!-- Batch Size是设定对数据库进行批量删除，批量更新和批量插入的时候的批次大小 -->
+				<prop key="hibernate.jdbc.batch_size">25</prop>
+				<!-- 允许使用外连接抓取.取值. true | false -->
+				<prop key="hibernate.use_outer_join">true</prop>
+				<!-- 外连接抓取树的最大深度,建议在0到3之间 -->
+				<prop key="hibernate.max_fetch_depth">1</prop>
+				<!-- 强制Hibernate按照被更新数据的主键，为SQL更新排序。这么做将减少在高并发系统中事务的死锁。 取值 true | false  -->
+				<prop key="hibernate.order_updates">true</prop>
+				<!-- 如果开启, Hibernate将收集有助于性能调节的统计数据.取值true|false -->
+				<prop key="hibernate.generate_statistics">true</prop>
+				<!-- create update delete create-drop -->
+				<prop key="javax.persistence.validation.mode">none</prop>
+			</props>
+		</property>
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- jdbcTemplate的使用 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<description>Config jdbcTemplate</description>
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+
+	<!-- HibernateTemplate的使用 -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="txManager" />
+
+	<!-- Transactional的XML配置 -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="query*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="del*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="edit*" propagation="REQUIRED" />
+			<tx:method name="ceadd*" propagation="REQUIRED" />
+			<tx:method name="downloadadd*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="REQUIRED" rollback-for="Exception" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut expression="execution(public * it304.dao..*.*(..))"
+			id="bussinessService" />
+		<aop:advisor pointcut-ref="bussinessService" advice-ref="txAdvice" />
+	</aop:config>
+
+
+
+</beans>
