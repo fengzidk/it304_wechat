@@ -17,7 +17,9 @@ import it304.util.wechat.PackageMessage;
 @Service
 public class PassiveReplyWeChatControl {
 	@Resource
-	private WeChatMessageContrlInterface textFormatMessage;// 默认按名称注入
+	private IWeChatMessageContrl textFormatMessage;// 默认按名称注入 消息格式处理...
+	@Resource
+	private IWeChatMessageContrl eventControl;// 事件
 
 	/**
 	 * 被动回复微信消息
@@ -27,19 +29,22 @@ public class PassiveReplyWeChatControl {
 	 */
 	public String passiveReplyInformation(Map<String, String> whChatMessage) {
 		String returnMessage = "";
-		WeChatMessageContrlInterface chatMessageContrlInterface = null;
+		IWeChatMessageContrl iWeChatMessageContrl = null;
 		String msgType = whChatMessage.get("MsgType");
 		switch (msgType) {
 		case "text":
-			chatMessageContrlInterface = textFormatMessage;
+			iWeChatMessageContrl = textFormatMessage;
+			break;
+		case "event":
+			iWeChatMessageContrl = eventControl;
 			break;
 		default:
-			chatMessageContrlInterface = null;
+			iWeChatMessageContrl = null;
 		}
-		if (chatMessageContrlInterface == null) {
+		if (iWeChatMessageContrl == null) {
 			returnMessage = PackageMessage.messagePackage(PackageMessage.msg_type_text, "请检查您输入的消息是否正确", whChatMessage.get("FromUserName"));
 		} else {
-			returnMessage = chatMessageContrlInterface.retrunMassage(whChatMessage);
+			returnMessage = iWeChatMessageContrl.retrunMassage(whChatMessage);
 		}
 
 		return returnMessage;

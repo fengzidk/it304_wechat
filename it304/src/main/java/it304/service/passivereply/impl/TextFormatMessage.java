@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 
 import it304.dao.passivereply.textformat.ITextFormatDao;
 import it304.model.selectreturnmessage.TextFromat;
-import it304.service.passivereply.WeChatMessageContrlInterface;
+import it304.service.passivereply.IWeChatMessageContrl;
 import it304.util.wechat.PackageMessage;
 
 @Component // 标明是一个组件
-public class TextFormatMessage implements WeChatMessageContrlInterface {
+public class TextFormatMessage implements IWeChatMessageContrl {
 	@Resource
 	private ITextFormatDao textFormatDaoImpl;
 

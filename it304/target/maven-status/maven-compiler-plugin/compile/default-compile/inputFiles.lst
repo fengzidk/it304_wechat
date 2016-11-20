@@ -1,13 +1,17 @@
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\passivereply\impl\package-info.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\util\ReadPropertites.java
+C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\passivereply\impl\eventimpl\SubscribeEvent.java
+C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\passivereply\impl\eventimpl\ClickEvent.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\initiativereply\package-info.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\util\wechat\PackageMessage.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\model\selectreturnmessage\package-info.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\model\Test\Test.java
+C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\passivereply\IWeChatMessageContrl.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\sys\init\WeChatMenuInit.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\util\finalUtil\WechetFinal.java
+C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\passivereply\impl\EventControl.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\task\package-info.java
-C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\passivereply\WeChatMessageContrlInterface.java
+C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\passivereply\impl\IWeChatEvent.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\bo\WeiXinEntrance.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\passivereply\impl\TextFormatMessage.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\dao\package-info.java
@@ -26,3 +30,4 @@ C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\util\wechat
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\parametermodel\WeChat.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\passivereply\PassiveReplyWeChatControl.java
 C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\model\Test\package-info.java
+C:\Users\admin\Desktop\wechat\it304_wechat\it304\src\main\java\it304\service\passivereply\impl\eventimpl\UnsubscribeEvent.java
