@@ -13,7 +13,7 @@ import it304.util.wechat.PackageMessage;
  * @author fengzi_dk
  *
  */
-@Component
+@Component("unsubscrilbe")
 public class UnsubscribeEvent implements IWeChatEvent {
 	@Override
 	public String returnEventMassage(Map<String, String> whChatMessage) {

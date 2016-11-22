@@ -10,6 +10,7 @@ import java.net.URL;
 import org.springframework.stereotype.Component;
 
 import it304.sys.read.WeiXinProperties;
+import it304.util.ReadWeChatXml;
 
 /**
  * 微信导航栏初始化
@@ -20,8 +21,9 @@ import it304.sys.read.WeiXinProperties;
 @Component // 表示这是一个组件
 public class WeChatMenuInit {
 
-	public void init() {
-		String user_define_menu = "{\"button\":[{\"type\":\"click\",\"name\":\"项目管理\",\"key\":\"20_PROMANAGE\"},{\"type\":\"click\",\"name\":\"机构运作\",\"key\":\"30_ORGANIZATION\"},{\"name\":\"日常工作\",\"sub_button\":[{\"type\":\"click\",\"name\":\"待办工单\",\"key\":\"01_WAITING\"},{\"type\":\"click\",\"name\":\"已办工单\",\"key\":\"02_FINISH\"},{\"type\":\"click\",\"name\":\"我的工单\",\"key\":\"03_MYJOB\"},{\"type\":\"click\",\"name\":\"公告消息箱\",\"key\":\"04_MESSAGEBOX\"},{\"type\":\"click\",\"name\":\"签到\",\"key\":\"05_SIGN\"}]}]}";
+	public void init() throws IOException {
+		String user_define_menu = ReadWeChatXml.read();
+		System.out.println(user_define_menu);
 		// 此处改为自己想要的结构体，替换即可
 		String access_token = WeiXinProperties.ACCESS_Token;
 		String action = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + access_token;

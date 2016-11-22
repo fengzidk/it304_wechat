@@ -11,17 +11,19 @@ import it304.util.wechat.PackageMessage;
 
 @Component
 public class EventControl implements IWeChatMessageContrl {
-	@Resource
+	@Resource(name = "subscrilbe")
 	private IWeChatEvent subscribeEvent;
-	@Resource
+	@Resource(name = "unsubscrilbe")
 	private IWeChatEvent unSubscribeEvent;
-	@Resource
+	@Resource(name = "click")
 	private IWeChatEvent clickEvent;
 
 	@Override
 	public String retrunMassage(Map<String, String> whChatMessage) {
 		IWeChatEvent iWeChatEvent = null;
-		String Event = whChatMessage.get("whChatMessage");
+		System.out.println("1");
+		String Event = whChatMessage.get("Event");
+		System.out.println(whChatMessage);
 		switch (Event) {
 		case "subscribe": // 订阅
 			iWeChatEvent = subscribeEvent;

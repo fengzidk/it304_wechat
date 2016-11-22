@@ -40,17 +40,12 @@ public class WeiXinEntrance {
 	@RequestMapping(value = "/api", method = RequestMethod.GET)
 	@ResponseBody
 	public String testInterface(WeChat wc) {
-		long start = System.currentTimeMillis();
-		System.out.println("/api");
 		String signature = wc.getSignature(); // 微信加密签名
 		String timestamp = wc.getTimestamp(); // 时间戳
 		String nonce = wc.getNonce();// 随机数
 		String echostr = wc.getEchostr();// 随机字符串
-		System.out.println(wc.toString());
 		// 通过检验signature对请求进行校验，若校验成功则原样返回echostr，表示接入成功，否则接入失败
 		if (SignUtil.checkSignature(signature, timestamp, nonce)) {
-			System.out.println(echostr);
-			System.out.println(((long) System.currentTimeMillis() - start) + "ms");
 			return echostr;
 		} else {
 			System.out.println("不是微信服务器发来的请求,请小心!");

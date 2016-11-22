@@ -13,7 +13,7 @@ import it304.util.wechat.PackageMessage;
  * @author fengzi_dk
  *
  */
-@Component
+@Component("subscrilbe")
 public class SubscribeEvent implements IWeChatEvent {
 
 	@Override

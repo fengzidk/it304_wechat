@@ -23,8 +23,6 @@ public class GetToken {
 	public void getAccess_token() { // 获得ACCESS_TOKEN
 
 		String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + WeiXinProperties.AppID + "&secret=" + WeiXinProperties.AppSecret;
-		System.out.println(WeiXinProperties.AppID);
-		System.out.println(WeiXinProperties.AppSecret);
 
 		String accessToken = null;
 		try {
@@ -49,7 +47,6 @@ public class GetToken {
 			JSONObject demoJson = (JSONObject) JSON.parse(message);
 			accessToken = demoJson.getString("access_token");
 			WeiXinProperties.ACCESS_Token = accessToken;
-			System.out.println(accessToken);
 			is.close();
 		} catch (Exception e) {
 			e.printStackTrace();
